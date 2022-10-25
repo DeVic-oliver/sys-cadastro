@@ -17,10 +17,15 @@
     <title>Document</title>
 </head>
 <body>
-    <main class="system-main">
-        <div class="form-request-result">
-            <h1>Olá, <?php echo $person_first_name; ?> seu cadastro foi realizado com sucesso!</h1>
-        </div>
-    </main>
+
+<?php include_once ROOT . '/templates/headers/header-logout.php'; ?>
+<?php include_once ROOT . '/templates/containers/main/main-system-open.html'; ?>
+    
+    <div class="form-request-result">
+        <h1>Olá, <?php echo $person_first_name; ?> seu cadastro foi realizado com sucesso!</h1>
+    </div>
+
+<?php include_once ROOT . '/templates/containers/main/main-system-close.html'; ?>
+
 </body>
 </html>
