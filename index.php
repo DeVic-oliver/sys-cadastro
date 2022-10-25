@@ -12,14 +12,13 @@
 
     <?php include_once 'templates/headers/header-logout.php'; ?>
     <?php include_once 'templates/containers/main/main-system-open.html'; ?>
-
     <div class="container-index">
         <div class="container-index-col">
             <h1 class="system-title">Olá, bem-vinda/o ao nosso sistema de cadastro fictício</h1>
             <p class="default-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
         <div class="container-index-col">
-            <form action="" method="post" class="index-login-form">
+            <form action="<?php echo ROOT.'/controller/query-db.php'; ?>" method="post" class="index-login-form">
                 <fieldset class="index-form-row">
                     <div class="username-container">
                         <label for="index-user-username">Username:</label>
