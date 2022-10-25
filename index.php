@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sys Cadastro</title>
 </head>
 <body>
 
-    <?php include_once 'templates/headers/header-logout.php'; ?>
-    <?php include_once 'templates/containers/main/main-system-open.html'; ?>
+    <?php include 'templates/headers/header-logout.php'; ?>
+    <?php include 'templates/containers/main/main-system-open.html'; ?>
 
     <div class="container-index">
         <div class="container-index-col">
@@ -34,7 +34,7 @@
 
                 <div class="index-form-row">
                     <button type="submit">Entrar</button>
-                    <a href="<?php echo ROOT . '/signup.php'; ?>">Cadastrar</a>
+                    <a href="<?php echo ROOT . '/views/signup.php'; ?>">Cadastrar</a>
                 </div>
             </form>
         </div>

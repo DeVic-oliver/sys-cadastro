@@ -1,3 +1,4 @@
+<?php include_once("../config.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-<?php include_once 'templates/containers/main/main-system-open.html'; ?>
-
+<?php include_once dirname(__DIR__) . '/templates/headers/header-logout.php'; ?>
+<?php include_once dirname(__DIR__) . '/templates/containers/main/main-system-open.html'; ?>
         <h1>Sistema de Cadastro</h1>
         <h2>Olá, seja bem-vinda/o ao sistema fictício de cadastro de pessoas</h2>
 
