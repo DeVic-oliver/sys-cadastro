@@ -34,7 +34,7 @@
 
                 <div class="index-form-row">
                     <button type="submit">Entrar</button>
-                    <a href="signup.php">Cadastrar</a>
+                    <a href="<?php echo ROOT . '/signup.php'; ?>">Cadastrar</a>
                 </div>
             </form>
         </div>
