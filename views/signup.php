@@ -1,4 +1,5 @@
-<?php include_once("../config.php"); ?>
+<?php include_once dirname(__DIR__) . '\config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
