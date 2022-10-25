@@ -1,6 +1,5 @@
 <?php include_once("config.php"); ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +10,8 @@
 </head>
 <body>
 
-    <?php include 'templates/headers/header-logout.php'; ?>
-    <?php include 'templates/containers/main/main-system-open.html'; ?>
+    <?php include_once 'templates/headers/header-logout.php'; ?>
+    <?php include_once 'templates/containers/main/main-system-open.html'; ?>
 
     <div class="container-index">
         <div class="container-index-col">
