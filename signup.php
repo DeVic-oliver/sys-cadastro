@@ -49,7 +49,7 @@
             <fieldset class="form-row">
                 <div class="form-col">
                     <label for="client-age">Idade:</label>
-                    <input type="number" name="client-age" if="client-age">
+                    <input type="text" name="client-age" id="client-age">
                 </div>
                 <div class="form-col">
                     <label for="client-gender">Gênero:</label>
