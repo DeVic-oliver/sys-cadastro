@@ -9,8 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-<?php include_once dirname(__DIR__) . '/templates/headers/header-logout.php'; ?>
-<?php include_once dirname(__DIR__) . '/templates/containers/main/main-system-open.html'; ?>
+    <header class="system-header">
+        <div class="system-menu-container">
+            <nav class="logout-menu">
+                <a href="/" class="sign-in-item">Entrar</a>
+                <a href="/" class="sign-up-item">Cadastro</a>
+            </nav>
+        </div>
+    </header>
+    <main class="system-main">
+
         <h1>Sistema de Cadastro</h1>
         <h2>Olá, seja bem-vinda/o ao sistema fictício de cadastro de pessoas</h2>
 
