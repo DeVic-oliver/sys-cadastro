@@ -1,4 +1,10 @@
-<?php include_once dirname(__DIR__) . '\config.php'; ?>
+<?php 
+    if(isset($_REQUEST) && !empty($_REQUEST)){
+        require_once 'config.php';
+        require_once './model/DatabaseActions.php';
+        DatabaseActions::RegisterClient($_REQUEST);
+    } 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,27 +28,32 @@
         <h1>Sistema de Cadastro</h1>
         <h2>Olá, seja bem-vinda/o ao sistema fictício de cadastro de pessoas</h2>
 
-        <form action="signup-successful.php" method="post">
+        <form action="" method="post">
             <fieldset class="form-row">
                 <div class="form-col">
-                    <label for="person-first-name">Nome:</label>
-                    <input type="text" name="person-first-name" id="person-first-name">
+                    <label for="client-first-name">Nome:</label>
+                    <input type="text" name="client-first-name" id="client-first-name">
                 </div>
 
                 <div class="form-col">
-                    <label for="person-last-name">Sobrenome:</label>
-                    <input type="text" name="person-last-name" id="person-last-name">
+                    <label for="client-last-name">Sobrenome:</label>
+                    <input type="text" name="client-last-name" id="client-last-name">
                 </div>
             </fieldset>
 
             <fieldset class="form-row">
+                <label for="client-username">Usuário:</label>
+                <input type="text" name="client-username" id="client-username">
+            </fieldset>
+
+            <fieldset class="form-row">
                 <div class="form-col">
-                    <label for="person-age">Idade:</label>
-                    <input type="number" name="person-age" if="person-age">
+                    <label for="client-age">Idade:</label>
+                    <input type="number" name="client-age" if="client-age">
                 </div>
                 <div class="form-col">
-                    <label for="person-gender">Gênero:</label>
-                    <select name="person-gender" id="person-gender">
+                    <label for="client-gender">Gênero:</label>
+                    <select name="client-gender" id="client-gender">
                         <option value="cisgender">Cis</option>
                         <option value="transgender">Trans</option>
                         <option value="binary">Binário</option>
@@ -54,8 +65,13 @@
             </fieldset>
 
             <fieldset class="form-row">
-                <label for="person-email">Email:</label>
-                <input type="email" name="person-email" id="person-email">
+                <label for="client-email">Email:</label>
+                <input type="email" name="client-email" id="client-email">
+            </fieldset>
+
+            <fieldset class="form-row">
+                <label for="client-password">Senha:</label>
+                <input type="password" name="client-password" id="client-password">
             </fieldset>
 
             <div class="form-row">
