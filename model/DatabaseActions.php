@@ -13,7 +13,6 @@ class DatabaseActions{
                 $db_pass = $credentials['password'];
                 self::$db_connection = new PDO("mysql:host=$db_host;dbname=$db_name;port=3306", $db_user, $db_pass);
                 self::$db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //var_dump($credentials) ;
             }
             catch(PDOException $e) {
                 echo "Connection failed: " . $e->getMessage();
@@ -26,9 +25,8 @@ class DatabaseActions{
 
     public static function RegisterClient($client){
         self::getConnection();
-     
-        var_dump($client);
-        $sql = "INSERT INTO client (first_name, last_name, age, gender, email, client_username, client_password) VALUES (:first_name, :last_name; :age, :gender, :email, :client_username, :client_password)";
+        $sql = "INSERT INTO client (first_name, last_name, age, gender, email, client_username, client_password) 
+        VALUES (:first_name, :last_name, :age, :gender, :email, :client_username, :client_password)";
         $result = self::$db_connection->prepare($sql);
         $result->execute(array(
             ':first_name' => $client['client-first-name'],
@@ -42,7 +40,15 @@ class DatabaseActions{
 
     }
     public static function DeleteClient(){}
-    public static function ListClients(){}
+    public static function ListClients(){
+        self::getConnection();
+     
+        $sql = "SELECT * FROM client";
+        
+        $results = self::$db_connection->query($sql);
+        return $results;
+
+    }
     public static function GetClient($client_id){}
     public static function EditClient($client_id){}
 
