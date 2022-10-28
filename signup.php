@@ -1,11 +1,3 @@
-<?php 
-    if(isset($_REQUEST) && !empty($_REQUEST)){
-        require_once 'config.php';
-        require_once './model/DatabaseActions.php';
-        DatabaseActions::RegisterClient($_REQUEST);
-    } 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +20,7 @@
         <h1>Sistema de Cadastro</h1>
         <h2>Olá, seja bem-vinda/o ao sistema fictício de cadastro de pessoas</h2>
 
-        <form action="" method="post">
+        <form action="/sys-cadastro/controller/client-save.php" method="post">
             <fieldset class="form-row">
                 <div class="form-col">
                     <label for="client-first-name">Nome:</label>
