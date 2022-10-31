@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'poppins-light';
+    src: url('http://localhost/sys-cadastro/assets/fonts/poppins/Poppins-light.ttf');
+}
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('http://localhost/sys-cadastro/assets/fonts/poppins/Poppins-Regular.ttf');
+}
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('http://localhost/sys-cadastro/assets/fonts/poppins/Poppins-Medium.ttf');
+}
+@font-face {
+    font-family: 'poppins-semibold';
+    src: url('http://localhost/sys-cadastro/assets/fonts/poppins/Poppins-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('http://localhost/sys-cadastro/assets/fonts/poppins/Poppins-Bold.ttf');
+}
+  
+  
+*{
+    margin: 0;
+    padding: 0;
+}
+
+p,
+a{
+    font-family: 'poppins-regular';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'poppins-bold';
+}
