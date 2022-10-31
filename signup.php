@@ -1,3 +1,4 @@
+<?php require_once 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,9 @@
     <header class="system-header">
         <div class="system-menu-container">
             <nav class="logout-menu">
-                <a href="/" class="sign-in-item">Entrar</a>
-                <a href="/" class="sign-up-item">Cadastro</a>
+                <a href="<?php echo ROOT; ?>/index.php" class="sign-in-item">Entrar</a>
+                <a href="<?php echo ROOT; ?>/signup.php" class="sign-up-item">Cadastro</a>
+                <a href="<?php echo ROOT; ?>/list-clients.php" class="sign-up-item">Listagem</a>
             </nav>
         </div>
     </header>

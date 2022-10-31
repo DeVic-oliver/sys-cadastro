@@ -7,7 +7,19 @@
         <title>Lista de clientes</title>
     </head>
     <body>
+        <header class="system-header">
+            <div class="system-menu-container">
+                <nav class="logout-menu">
+                    <a href="<?php echo ROOT; ?>/index.php" class="sign-in-item">Entrar</a>
+                    <a href="<?php echo ROOT; ?>/signup.php" class="sign-up-item">Cadastro</a>
+                    <a href="<?php echo ROOT; ?>/list-clients.php" class="sign-up-item">Listagem</a>
+                </nav>
+            </div>
+        </header>
+        <main class="system-main">
+            <div class="centralizer">
 
+        
         <?php
         require dirname(__DIR__).'/model/databaseactions.php';
         require dirname(__DIR__).'/config.php';
@@ -27,6 +39,7 @@
         echo $client_list_table;
 
         ?>
-
+            </div>
+        </main>
     </body>
 </html>
