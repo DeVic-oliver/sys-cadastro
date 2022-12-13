@@ -23,12 +23,14 @@ namespace App\Controller;
                 'id_city' => null
             );
 
-            $cities = '';
-            foreach(City::GetAllCities() as $city){
-                $cities .= "<option value='{$city['id']}>{$city['name']}</option>";
-            }
+            print $this->html;
 
-            $this->html = str_replace('{cities}', $cities, $this->html);
+            // $cities = '';
+            // foreach(City::GetAllCities() as $city){
+            //     $cities .= "<option value='{$city['id']}>{$city['name']}</option>";
+            // }
+
+            // $this->html = str_replace('{cities}', $cities, $this->html);
         }
 
         public function editPerson($param){

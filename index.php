@@ -1,10 +1,17 @@
-<?php 
+<?php
+
+use App\Controller\PersonForm;
 
 spl_autoload_register(function($class){
-    require "controller/$class.php";
+
+    if(file_exists($class.'.php')){
+        require_once $class.'.php';
+    }
 });
 
-// $path_root = __DIR__;
+if( !isset($_REQUEST['class']) ){
+    require_once 'controller/PersonForm.php';
 
-$helloWorld = new HelloWorld();
-$helloWorld->SayHello();
+    $personForm = new PersonForm();
+}
+
