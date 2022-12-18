@@ -1,9 +1,9 @@
 <?php
 
-    namespace App\Model;
+namespace App\Model;
 
-use PDO;
-
+    use PDO;
+    
     class Person{
         
         private static $databaseConnection;
@@ -25,7 +25,7 @@ use PDO;
             return self::$databaseConnection;
         }
 
-        public static function SavePerson($personData){
+        public static function savePerson($personData){
             $connection = self::getConnection();
 
             if(empty($personData['id'])){
@@ -58,5 +58,15 @@ use PDO;
                 ':id_city'  => $personData['id_city']
             );
             $result->execute($array);
+        }
+
+        public static function findPerson($id){
+            $connection = self::getConnection();
+
+            $sqlString = "SELECT * FROM personTable WHERE id='{$id}'";
+            $result = $connection->query($sqlString);
+            $personRow = $result->fetch();
+
+            return $personRow;
         }
     }
