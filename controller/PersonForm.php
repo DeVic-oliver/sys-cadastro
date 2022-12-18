@@ -40,6 +40,19 @@
         //     }
         // }
 
+
+        public function setRegisterPersonHtml(){
+            $this->html = file_get_contents($this->path.'/views/form-register.html');
+        }
+
+        public function registerPerson(){
+            // $person_data = [
+            //     'first_name'
+            // ]
+
+            // Person::savePerson();
+        }
+
         public function showPage(){
             print $this->html;
         }
