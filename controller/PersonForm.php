@@ -1,9 +1,5 @@
 <?php
 
- 
-
-namespace App\Controller;
-
     use App\Model\Person;
     use App\Model\City;
 
@@ -12,8 +8,7 @@ namespace App\Controller;
         private $html;
         private $data;
 
-        public function __construct(){
-            $this->html = file_get_contents( 'views/form.html' );
+        function __construct(){
             $this->path = dirname(__DIR__);
             $this->html = file_get_contents( $this->path.'/views/form.html' );
             $this->data = array(
@@ -26,7 +21,6 @@ namespace App\Controller;
                 'id_city' => null
             );
 
-            print $this->html;
 
             // $cities = '';
             // foreach(City::GetAllCities() as $city){
@@ -36,14 +30,16 @@ namespace App\Controller;
             // $this->html = str_replace('{cities}', $cities, $this->html);
         }
 
-        public function editPerson($param){
-            try {
-                $id = (int) $param['id'];
-                $person = Person::findPerson($id);
-                $this->data = $person;
-            } catch (\Exception $e) {
-                print $e->getMessage();
-            }
+        // public function editPerson($param){
+        //     try {
+        //         $id = (int) $param['id'];
+        //         $person = Person::findPerson($id);
+        //         $this->data = $person;
+        //     } catch (\Exception $e) {
+        //         print $e->getMessage();
+        //     }
+        // }
+
         public function showPage(){
             print $this->html;
         }
