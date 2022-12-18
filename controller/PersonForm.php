@@ -8,11 +8,14 @@ namespace App\Controller;
     use App\Model\City;
 
     class PersonForm{
+        private $path;
         private $html;
         private $data;
 
         public function __construct(){
             $this->html = file_get_contents( 'views/form.html' );
+            $this->path = dirname(__DIR__);
+            $this->html = file_get_contents( $this->path.'/views/form.html' );
             $this->data = array(
                 'id' => null,
                 'name' => null,
@@ -41,5 +44,7 @@ namespace App\Controller;
             } catch (\Exception $e) {
                 print $e->getMessage();
             }
+        public function showPage(){
+            print $this->html;
         }
     }
