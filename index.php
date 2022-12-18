@@ -1,17 +1,15 @@
-<?php
+<h1>index.php</h1>
+<?php 
+spl_autoload_register(function($class){ require "controller/$class.php"; });
 
-use App\Controller\PersonForm;
-
-spl_autoload_register(function($class){
-
-    if(file_exists($class.'.php')){
-        require_once $class.'.php';
-    }
-});
-
-if( !isset($_REQUEST['class']) ){
-    require_once 'controller/PersonForm.php';
-
-    $personForm = new PersonForm();
+if(isset($_REQUEST) && isset($_REQUEST['class'])) {
+    $page_class = new $_REQUEST['class'];
+    // $controller_method = $_REQUEST['method'];
+    // if(method_exists($page_class, $controller_method)){
+    //     $page_class->$controller_method;
+    // }else{
+    //     $page_class->show_index();
+    // }
+}else{
+   new IndexController();
 }
-
