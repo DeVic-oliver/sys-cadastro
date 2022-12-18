@@ -1,15 +1,21 @@
-<h1>index.php</h1>
 <?php 
-spl_autoload_register(function($class){ require "controller/$class.php"; });
+
+spl_autoload_register(
+    function($class){ 
+        require "controller/$class.php"; 
+    }
+);
 
 if(isset($_REQUEST) && isset($_REQUEST['class'])) {
-    $page_class = new $_REQUEST['class'];
-    // $controller_method = $_REQUEST['method'];
-    // if(method_exists($page_class, $controller_method)){
-    //     $page_class->$controller_method;
-    // }else{
-    //     $page_class->show_index();
-    // }
+    $page = new $_REQUEST['class'];
+
+    if(isset($_REQUEST['method'])){
+        call_user_func( array( $page, $_REQUEST['method'] ) );
+    }
+    
+    $page->showPage();
+    
 }else{
-   new IndexController();
+   $index = new IndexController();
+   $index->showPage();
 }
