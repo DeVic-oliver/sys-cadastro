@@ -1,18 +1,16 @@
 <?php
 
- 
-
-namespace App\Controller;
-
     use App\Model\Person;
     use App\Model\City;
 
     class PersonForm{
+        private $path;
         private $html;
         private $data;
 
-        public function __construct(){
-            $this->html = file_get_contents( 'views/form.html' );
+        function __construct(){
+            $this->path = dirname(__DIR__);
+            $this->html = file_get_contents( $this->path.'/views/form.html' );
             $this->data = array(
                 'id' => null,
                 'name' => null,
@@ -23,7 +21,6 @@ namespace App\Controller;
                 'id_city' => null
             );
 
-            print $this->html;
 
             // $cities = '';
             // foreach(City::GetAllCities() as $city){
@@ -33,13 +30,30 @@ namespace App\Controller;
             // $this->html = str_replace('{cities}', $cities, $this->html);
         }
 
-        public function editPerson($param){
-            try {
-                $id = (int) $param['id'];
-                $person = Person::findPerson($id);
-                $this->data = $person;
-            } catch (\Exception $e) {
-                print $e->getMessage();
-            }
+        // public function editPerson($param){
+        //     try {
+        //         $id = (int) $param['id'];
+        //         $person = Person::findPerson($id);
+        //         $this->data = $person;
+        //     } catch (\Exception $e) {
+        //         print $e->getMessage();
+        //     }
+        // }
+
+
+        public function setRegisterPersonHtml(){
+            $this->html = file_get_contents($this->path.'/views/form-register.html');
+        }
+
+        public function registerPerson(){
+            // $person_data = [
+            //     'first_name'
+            // ]
+
+            // Person::savePerson();
+        }
+
+        public function showPage(){
+            print $this->html;
         }
     }
