@@ -1,7 +1,6 @@
 <?php
 
     use App\Model\Person;
-    use App\Model\City;
 
     class PersonForm{
         private $path;
@@ -21,36 +20,13 @@
                 'id_city' => null
             );
 
-
-            // $cities = '';
-            // foreach(City::GetAllCities() as $city){
-            //     $cities .= "<option value='{$city['id']}>{$city['name']}</option>";
-            // }
-
-            // $this->html = str_replace('{cities}', $cities, $this->html);
         }
-
-        // public function editPerson($param){
-        //     try {
-        //         $id = (int) $param['id'];
-        //         $person = Person::findPerson($id);
-        //         $this->data = $person;
-        //     } catch (\Exception $e) {
-        //         print $e->getMessage();
-        //     }
-        // }
-
 
         public function setRegisterPersonHtml(){
             $this->html = file_get_contents($this->path.'/views/form-register.html');
         }
 
         public function registerPerson(){
-            // $person_data = [
-            //     'first_name'
-            // ]
-
-            // Person::savePerson();
         }
 
         public function showPage(){
