@@ -1,6 +1,8 @@
 <?php
 
-    use App\Model\Person;
+    use App\Model\Person as Person;
+
+    include_once dirname(__DIR__) . '/model/Person.php';
 
     class PersonForm{
         private $path;
