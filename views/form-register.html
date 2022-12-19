@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Register-me</h1>
-    <form action="?class=PersonForm&method=savePerson" method="post">
+    <form action="?class=PersonForm&method=registerPerson" method="post">
         <fieldset>
             <label for="firt-name">First name</label>
             <input type="text" name="save-person-first-name" id="first-name">
@@ -24,6 +24,13 @@
         <fieldset>
             <label for="password">Passwword</label>
             <input type="password" name="save-person-password" id="password">
+        </fieldset>
+        <fieldset>
+            <label for="role">Função</label>
+            <select name="save-person-role" id="role">
+                <option value="admin">Administrador</option>
+                <option value="comum">Comum</option>
+            </select>
         </fieldset>
         <input type="submit" value="Register">
     </form>

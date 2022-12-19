@@ -10,14 +10,14 @@ namespace App\Model;
 
         public static function getConnection(){
             if(empty(self::$databaseConnection)){
-                $connectionCredentials = parse_ini_file('config/dbFileCredentials.ini');
-                $host = $connectionCredentials['host'];
-                $dbName = $connectionCredentials['name'];
-                $user = $connectionCredentials['user'];
+                $connectionCredentials = parse_ini_file(dirname(__DIR__).'/config/db-cred.ini');
+                $host = $connectionCredentials['servername'];
+                $dbName = $connectionCredentials['dbname'];
+                $user = $connectionCredentials['username'];
                 $password = $connectionCredentials['password'];
 
-                $connectionsString = "";
-                self::$databaseConnection = new PDO($connectionsString);
+                $connectionsString = "mysql:host=$host;dbname=$dbName";
+                self::$databaseConnection = new PDO($connectionsString, $user, $password);
 
                 self::$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
@@ -28,34 +28,23 @@ namespace App\Model;
         public static function savePerson($personData){
             $connection = self::getConnection();
 
-            if(empty($personData['id'])){
-                $sqlStringQuery = "SELECT max(id) as next FROM personTable";
-                $result = $connection->query($sqlStringQuery);
-                $row = $result->fetch();
+            $sqlStringQuery = "SELECT max(id) as next FROM person";
+            $result = $connection->query($sqlStringQuery);
+            $row = $result->fetch();
 
-                $personData['id'] = (int) $row['next'] + 1;
-
-                $sql = "INSERT INT personTable (person_id, person_name, person_address, person_district, person_phone, person_email, id_city)
-                                    VALUES (:person_id, :person_name, :person_address, :person_district, :person_phone, :person_email, :id_city)";
-            }else{
-                $sql = "UPDATE personTable SET  person_name = :person_name, 
-                                                person_address = :person_address, 
-                                                person_district = :person_district, 
-                                                person_phone = :person_phone, 
-                                                person_email = :person_email,
-                                                id_city = :id_city
-                        WHERE person_id = :person_id";
-            }
-
+            $personData['id'] = (int) $row['next'] + 1;
+           
+            $sql = "INSERT INTO person (id, first_name, last_name, email, person_password, person_role)
+                                VALUES (:id, :first_name, :last_name, :email, :person_password, :person_role)";
+            
             $result = $connection->prepare($sql);
             $array = array(
-                ':person_id' => $personData['id'],
-                ':person_name' => $personData['name'],
-                ':person_address' => $personData['address'],
-                ':person_district' => $personData['district'],
-                ':person_phone' => $personData['phone'],
-                ':person_email' => $personData['email'],
-                ':id_city'  => $personData['id_city']
+                ':id' => $personData['id'],
+                ':first_name' => $personData['save-person-first-name'],
+                ':last_name' => $personData['save-person-last-name'],
+                ':email' => $personData['save-person-email'],
+                ':person_password' => $personData['save-person-password'],
+                ':person_role'  => $personData['save-person-role']
             );
             $result->execute($array);
         }
@@ -63,20 +52,25 @@ namespace App\Model;
         public static function findPerson($id){
             $connection = self::getConnection();
 
-            $sqlString = "SELECT * FROM personTable WHERE id='{$id}'";
+            $sqlString = "SELECT * FROM person WHERE id='{$id}'";
             $result = $connection->query($sqlString);
             $personRow = $result->fetch();
 
             return $personRow;
         }
 
-        public static function getAll(){
-            // $connection = self::getConnection();
-            // $sql = "SELECT * FROM person";
-            // $result = $connection->query($sql);
-            // $records = $result->fetch();
-            // return $records; 
+        public static function deletePerson($id){
+            $connection = self::getConnection();
 
-            return "<tr><td>records</td></tr>";
+            $sql = "DELETE FROM person WHERE id={$id}";
+            $result = $connection->prepare($sql);
+            $result->execute();
+        }
+
+        public static function getAll(){
+            $connection = self::getConnection();
+            $sql = "SELECT * FROM person";
+            $result = $connection->query($sql);
+            return $result->fetchAll(PDO::FETCH_ASSOC);
         }
     }

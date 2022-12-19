@@ -26,7 +26,8 @@
             $this->html = file_get_contents($this->path.'/views/form-register.html');
         }
 
-        public function registerPerson(){
+        public function deletePerson(){
+            Person::deletePerson($_REQUEST['id']);
         }
 
         public function showPage(){
