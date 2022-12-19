@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 spl_autoload_register(
     function($class){ 
-        require "controller/$class.php"; 
+        $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
+        include_once dirname(__FILE__) . "/controller/$class.php"; 
     }
 );
 
