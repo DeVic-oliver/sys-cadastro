@@ -24,8 +24,8 @@
 
         }
 
-        public function setRegisterPersonHtml(){
-            $this->html = file_get_contents($this->path.'/views/form-register.html');
+        public function registerPerson(){
+            Person::savePerson($_POST);
         }
 
         public function deletePerson(){
