@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-    use PDO;
+    use PDO as PDO;
     
     class Person{
         
@@ -68,5 +68,15 @@ namespace App\Model;
             $personRow = $result->fetch();
 
             return $personRow;
+        }
+
+        public static function getAll(){
+            // $connection = self::getConnection();
+            // $sql = "SELECT * FROM person";
+            // $result = $connection->query($sql);
+            // $records = $result->fetch();
+            // return $records; 
+
+            return "<tr><td>records</td></tr>";
         }
     }
